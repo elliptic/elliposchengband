@@ -1057,7 +1057,8 @@ void monster_death(int m_idx, bool drop_item)
 
     if (mut_present(MUT_INFERNAL_DEAL) && los(py, px, m_ptr->fy, m_ptr->fx) && !is_pet(m_ptr))
     {
-        if ( p_ptr->msp > 0
+        if ( p_ptr->msp > 0 
+          && p_ptr->pclass != CLASS_RUNE_KNIGHT 
           && p_ptr->pclass != CLASS_SAMURAI
           && p_ptr->pclass != CLASS_MYSTIC )
         {
@@ -1660,6 +1661,7 @@ void monster_death(int m_idx, bool drop_item)
     {
         int a_idx = 0;
         int chance = 0;
+        int which_dungeon = 0;
         race_t *race_ptr = get_race();
 
         switch (m_ptr->r_idx)
@@ -2138,7 +2140,7 @@ void monster_death(int m_idx, bool drop_item)
             }
         }
 
-        int which_dungeon = 0;
+        which_dungeon = 0;
         if ((r_ptr->flags7 & RF7_GUARDIAN) && ((d_info[dungeon_type].final_guardian == m_ptr->r_idx) || no_wilderness))
         {
             if (!no_wilderness)

@@ -3266,9 +3266,9 @@ void player_outfit(void)
             if (!k_idx) continue;
             object_prep(&forge, k_idx);
 
-            /* Hack: Rune-Knights begin with a Fire Rune on their broad sword (or whip if sexy) */
+            /* Hack: Rune-Knights begin with an Absorption Rune on their broad sword (or whip if sexy) */
             if (p_ptr->pclass == CLASS_RUNE_KNIGHT && tv == TV_SWORD && sv == SV_BROAD_SWORD)
-                rune_add(&forge, RUNE_FIRE, FALSE);
+                rune_add(&forge, RUNE_ABSORPTION, FALSE);
 
             add_outfit(&forge);
         }
@@ -3340,9 +3340,9 @@ static bool get_stat_limits(void)
         /* Move Cursol */
         if (cs != os)
         {
-            score = _birth_stats_score(cval);
             byte score_a = TERM_L_GREEN;
-
+            score = _birth_stats_score(cval);
+            
             if (score > 30)
                 score_a = TERM_RED;
             else if (score < 20)

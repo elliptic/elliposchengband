@@ -861,7 +861,7 @@ static void regenmana(int percent)
 {
     s32b old_csp = p_ptr->csp;
 
-    if (p_ptr->pclass == CLASS_RAGE_MAGE) return;
+    if (p_ptr->pclass == CLASS_RUNE_KNIGHT || p_ptr->pclass == CLASS_RAGE_MAGE) return;
     if (mimic_no_regen()) return;
 
     /*
@@ -3415,6 +3415,10 @@ static void process_world(void)
     /* Process recharging */
     process_world_aux_recharge();
 
+    /* Have auto_id affect inventory*/
+    if (p_ptr->auto_id)
+        identify_pack();
+
     /* Feel the inventory */
     sense_inventory1();
     sense_inventory2();
@@ -4551,7 +4555,8 @@ static void process_player(void)
         {
             /* Stop resting */
             if ( (p_ptr->chp == p_ptr->mhp || mimic_no_regen()) 
-              && ( p_ptr->csp >= p_ptr->msp
+              && ( p_ptr->csp >= p_ptr->msp 
+                || p_ptr->pclass == CLASS_RUNE_KNIGHT 
                 || p_ptr->pclass == CLASS_RAGE_MAGE 
                 || mimic_no_regen() ) 
               && !magic_eater_can_regen()
@@ -4566,7 +4571,8 @@ static void process_player(void)
         {
             /* Stop resting */
             if ( (p_ptr->chp == p_ptr->mhp || mimic_no_regen()) 
-              && ( p_ptr->csp >= p_ptr->msp
+              && ( p_ptr->csp >= p_ptr->msp 
+                || p_ptr->pclass == CLASS_RUNE_KNIGHT 
                 || p_ptr->pclass == CLASS_RAGE_MAGE 
                 || mimic_no_regen() ) 
               && !magic_eater_can_regen() 
