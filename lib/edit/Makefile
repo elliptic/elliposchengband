@@ -12,6 +12,6 @@ q0000021.txt  q0clone0.txt  qsmaug.txt    t_lite.txt \
 m_info.txt    q0000022.txt  q0fields.txt  q_warg.txt    t_pref.txt \
 misc.txt      q0000023.txt  q0thief1.txt  r_info.txt    v_info.txt \
 q0000001.txt  q0000027.txt  q0thief2.txt  s_info.txt    w_info.txt \
-q0000002.txt  q0000028.txt  q0willow.txt  t0000001.txt
+q0000002.txt  q0000028.txt  q0willow.txt  t0000001.txt	q_warg_lite.txt
 
 PACKAGE = edit
