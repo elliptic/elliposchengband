@@ -1122,7 +1122,8 @@ void cast_concentration(void)
     if (p_ptr->special_defense & KATA_MASK)
         return;
         
-    msg_print("You concentrate to charge your power.");
+    if (disturb_minor) 
+        msg_print("You concentrate to charge your power.");
 
     p_ptr->csp += p_ptr->msp / 2;
     if (p_ptr->csp >= max_csp)
@@ -1313,4 +1314,12 @@ class_t *samurai_get_class(void)
     }
 
     return &me;
+}
+
+bool samurai_can_concentrate(void)
+{
+    caster_info *caster_ptr = get_caster_info();
+    if (!(caster_ptr && (caster_ptr->options & CASTER_SUPERCHARGE_MANA))) return FALSE;
+    if (p_ptr->csp >= _max_sp()) return FALSE;
+    return TRUE;
 }

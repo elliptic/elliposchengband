@@ -2465,6 +2465,7 @@ extern int      rune_knight_absorption(int m_idx, int type, int dam);
 
 extern void     samurai_concentration_spell(int cmd, variant *res);
 extern void     cast_concentration(void);
+extern bool     samurai_can_concentrate(void);
 extern class_t *samurai_get_class(void);
 extern void     samurai_posture_spell(int cmd, variant *res);
 extern void     samurai_posture_get_flags(u32b flgs[OF_ARRAY_SIZE]);
