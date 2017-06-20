@@ -6219,6 +6219,7 @@ enum effect_e
 #define BIAS_DEMON           0x00080000
 #define BIAS_PROTECTION      0x00100000
 #define BIAS_ARCHER          0x00200000
+#define BIAS_POWER           0x00400000
 
 enum dragon_realm_e
 {

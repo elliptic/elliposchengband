@@ -2298,8 +2298,7 @@ static void _ego_create_dragon_armor(object_type *o_ptr, int level)
             if (one_in_(ACTIVATION_CHANCE))
             {   /* Only do strong effects since we loose the DSM's breathe activation! */
                 int choices[] = {
-                    EFFECT_IDENTIFY_FULL, EFFECT_DETECT_ALL, EFFECT_ENLIGHTENMENT,
-                    EFFECT_CLAIRVOYANCE, EFFECT_SELF_KNOWLEDGE, -1
+                    EFFECT_CLAIRVOYANCE, -1
                 };
                 _effect_add_list(o_ptr, choices);
             }
@@ -2353,7 +2352,7 @@ static void _ego_create_dragon_armor(object_type *o_ptr, int level)
                 if (one_in_(ACTIVATION_CHANCE))
                 {   /* Only do strong effects since we loose the DSM's breathe activation! */
                     int choices[] = {
-                        EFFECT_GENOCIDE, EFFECT_MASS_GENOCIDE, EFFECT_WRAITHFORM,
+                        EFFECT_GENOCIDE, EFFECT_MASS_GENOCIDE,
                         EFFECT_DARKNESS_STORM, -1
                     };
                     _effect_add_list(o_ptr, choices);
@@ -2759,7 +2758,6 @@ static void _ego_create_helmet(object_type *o_ptr, int level)
             if (one_in_(ACTIVATION_CHANCE))
             {
                 int choices[] = {
-                    EFFECT_LITE_AREA, EFFECT_LITE_MAP_AREA, EFFECT_BOLT_LITE, EFFECT_BEAM_LITE_WEAK,
                     EFFECT_BEAM_LITE, EFFECT_BALL_LITE, EFFECT_BREATHE_LITE, EFFECT_CONFUSING_LITE, -1
                 };
                 _effect_add_list(o_ptr, choices);
@@ -2774,9 +2772,7 @@ static void _ego_create_helmet(object_type *o_ptr, int level)
             if (one_in_(ACTIVATION_CHANCE))
             {
                 int choices[] = {
-                    EFFECT_IDENTIFY, EFFECT_IDENTIFY_FULL, EFFECT_PROBING, EFFECT_DETECT_TRAPS,
-                    EFFECT_DETECT_MONSTERS, EFFECT_DETECT_OBJECTS, EFFECT_DETECT_ALL,
-                    EFFECT_ENLIGHTENMENT, EFFECT_CLAIRVOYANCE, EFFECT_SELF_KNOWLEDGE, -1
+                    EFFECT_ENLIGHTENMENT, EFFECT_CLAIRVOYANCE, -1
                 };
                 _effect_add_list(o_ptr, choices);
             }
@@ -2787,9 +2783,8 @@ static void _ego_create_helmet(object_type *o_ptr, int level)
             if (one_in_(ACTIVATION_CHANCE))
             {
                 int choices[] = {
-                    EFFECT_HEAL, EFFECT_CURING, EFFECT_RESTORE_STATS, EFFECT_RESTORE_EXP,
-                    EFFECT_HEAL_CURING, EFFECT_CURE_POIS, EFFECT_CURE_FEAR,
-                    EFFECT_REMOVE_CURSE, EFFECT_REMOVE_ALL_CURSE, EFFECT_CLARITY, -1
+                    EFFECT_RESTORE_STATS, EFFECT_RESTORE_EXP,
+                    EFFECT_HEAL_CURING, EFFECT_REMOVE_ALL_CURSE, -1
                 };
                 _effect_add_list(o_ptr, choices);
             }
@@ -3095,7 +3090,7 @@ void obj_create_lite(object_type *o_ptr, int level, int power, int mode)
                 if (one_in_(ACTIVATION_CHANCE))
                 {
                     int choices[] = {
-                        EFFECT_LITE_AREA, EFFECT_LITE_MAP_AREA, EFFECT_ENLIGHTENMENT, EFFECT_CLAIRVOYANCE, -1
+                        EFFECT_ENLIGHTENMENT, EFFECT_CLAIRVOYANCE, -1
                     };
                     _effect_add_list(o_ptr, choices);
                 }
